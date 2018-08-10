@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Chat App</title>
+		<meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+		<link href="http://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<script src="chat.js"></script>
+		<script src="jscolor.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<h1>Welcome to le Chat Room</h1>
+			<img id ="blackCat" src="http://www.clipartbest.com/cliparts/M9T/4r5/M9T4r5LiE.jpeg" alt="Black cat">
+		</header>
+
+		<div class="alert alert-success" id="change_name_alert" role="alert">
+		   Username was successfullly changed!
+		</div>
+		<div class="alert alert-success" id="change_color_alert" role="alert">
+		   Your user color was successfullly changed!
+		</div>
+			
+		<section id="buttonBar">
+			
+				
+				<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Options Menu</button>
+		</section>
+
+		<section id="chatroom">
+			<section id="feedback"></section>
+		</section>
+
+		<section id="input_zone"> 
+			<div class="usernameHolder">
+				<p>Username : </p>
+				<p id="userNameDiv">Anonymous</p>
+			</div>
+			<div class="message_box">
+				<input id="message" class="vertical-align" type="textarea" />
+				<button id="send_message" type="button" class="btn btn-secondary vertical-align">Send</button>
+			<div> 
+		</section>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Options Menu</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+				<div id="change_username">
+					<input id="username" type="text" />
+					<input id="old_username" type="hidden" />
+					<button type="button" class="btn btn-info btn-lg" id="send_username" type="button">Change username</button>
+					<br/>
+					<br/>
+					Color: <input class="jscolor" id="usercolor" value="ab2567"> 
+					<button type="button" class="btn btn-info btn-lg" id="send_usercolor" type="button">Change Color</button>
+					<br/>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+    </div>
+
+	</body>
+</html>

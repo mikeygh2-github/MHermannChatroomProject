@@ -1,0 +1,20 @@
+{
+  "name": "ChatroomProject",
+  "version": "1.0.0",
+  "description": "Chat room with simple user fuctionalities.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "bootstrap": "file:bootstrap",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "jquery": "^1.9.1",
+    "nodemon": "^1.14.3",
+    "popper.js": "^1.14.3",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {}
+}
