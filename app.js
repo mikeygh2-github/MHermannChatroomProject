@@ -2,17 +2,19 @@
 const express = require('express');
 const app = express();
 
+//Global lists of users' Ids, Names, and their color. Our "database". 
+//Would be put in a proper database on a fully realized project. 
 global.socket_user_ids = [];
 global.username_list = [];
 global.username_color_list = [];
 
-//set the template engine ejs
+//Set the template engine ejs.
 app.set('view engine', 'ejs');
 
-//middlewares
+//Set middlewares.
 app.use(express.static('public'));
 
-//routes
+//Have it direct you to index.ejs in the 'public' directory. 
 app.get('/', (req, res) => {
 	res.render('index')
 })
@@ -20,7 +22,7 @@ app.get('/', (req, res) => {
 //Listen on port 3000
 server = app.listen(3000)
 
-//socket.io instantiation
+//Create a socket.
 const io = require("socket.io")(server)
 
 
@@ -35,7 +37,7 @@ io.on('connection', (socket) => {
         console.log(ex);
     }
 
-    //default username
+    //Default username.
     socket.username = "Anonymous";
 
     //Create listener for username change. 
@@ -47,6 +49,7 @@ io.on('connection', (socket) => {
             } else {
                 console.log('User ' + data.old_username + ' has changed their username to ' + data.username + '.');
             }
+            //Set the user's username in the socket and change it in the Database.
             socket.username = data.username;
             var user_index = socket_user_ids.indexOf(socket.client.id);
             username_list[user_index] = data.username;
@@ -75,6 +78,7 @@ io.on('connection', (socket) => {
 
     //Listen for "set_color" event.
     socket.on('set_color', (data) => {
+        //Set in user database. 
         var userIndex = socket_user_ids.indexOf(socket.client.id);
         username_color_list[userIndex] = data.newUserColor;
     })
